@@ -88,13 +88,28 @@ void insere()
 	cin >> novo->valor;
 	novo->prox = NULL;
 
+	if (inicio == NULL && fim == NULL) {
+		inicio = novo;
+		fim = novo;
+	}
+	else {
+		fim -> prox = novo;
+		fim = novo;
+		cout << "o ultimo numero e: " << fim -> valor << endl;
+	}
 
 }
 
 void remove()
 {
+	if (inicio == NULL) {
+		cout << "A lista esta vazia!"<< endl; 
+		return;
+	}
 
-
-
+	cout << "O valor do primeiro e: " << inicio -> valor << endl;
+	NO* antigoInicio = inicio;
+	inicio = inicio->prox;
+	free (antigoInicio);
 }
 
